@@ -66,12 +66,16 @@ impl FromStr for NACA4 {
     }
 }
 
+type All = (((f32, f32), (f32, f32)), (f32, f32));
+
 /// x should always in 0..=1
 pub trait NACAAirfoil {
     fn xu(&self, x: f32) -> f32;
     fn yu(&self, x: f32) -> f32;
     fn xl(&self, x: f32) -> f32;
     fn yl(&self, x: f32) -> f32;
+    /// ((xu, yu), (xl, yl), (x, yc))
+    fn all(&self, x: f32) -> All;
 }
 
 impl NACAAirfoil for NACA4 {
@@ -89,5 +93,18 @@ impl NACAAirfoil for NACA4 {
 
     fn yl(&self, x: f32) -> f32 {
         self.yc(x) - self.yt(x) * self.theta(x).cos()
+    }
+
+    fn all(&self, x: f32) -> All {
+        let yt = self.yt(x);
+        let yc = self.yc(x);
+        let theta = self.theta(x);
+        let sin_th_yt = theta.sin() * yt;
+        let cos_th_yt = theta.cos() * yt;
+        let xu = x - sin_th_yt;
+        let yu = yc + cos_th_yt;
+        let xl = x + sin_th_yt;
+        let yl = yc - cos_th_yt;
+        (((xu, yu), (xl, yl)), (x, yc))
     }
 }
