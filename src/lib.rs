@@ -16,9 +16,9 @@ pub enum NACAError {
 }
 
 pub struct NACA4 {
-    m: f32,
-    p: f32,
-    t: f32,
+    pub m: f32,
+    pub p: f32,
+    pub t: f32,
 }
 
 impl NACA4 {
