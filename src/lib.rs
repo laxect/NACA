@@ -28,7 +28,7 @@ impl NACA4 {
         let x1 = M1 * x;
         let x2 = M2 * x.powi(2);
         let x3 = M3 * x.powi(3);
-        let x4 = M4 * x.powi(3);
+        let x4 = M4 * x.powi(4);
         (x0 + x1 + x2 + x3 + x4) * 5.0 * t
     }
 
