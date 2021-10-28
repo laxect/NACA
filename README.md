@@ -1,8 +1,7 @@
 # 4-bit NACA Airfoil.
 
 ```
-> cargo run
-2412
+> cargo run 2412
 ```
 
 Result is `NACA.PNG`
