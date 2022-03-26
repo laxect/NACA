@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <link rel="hub" href="https://pubsubhubbub.appspot.com/" />
+    <link data-trunk rel="rust" href="Cargo.toml" data-bin="page" data-cargo-features="page"/>
+    <title>島風造船所 - NACA</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="ギャラ" />
+    <meta name="description" content="世界哟。原来余是爱着汝的！" />
+    <style>
+      .wai {
+        width: 500px;
+        height: 500px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .outer-circle,
+      .inner-circle {
+        position: absolute;
+        border-radius: 50%;
+
+        border: 2px solid black;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        animation: ani 1s 1;
+      }
+
+      .outer-circle {
+        width: 320px;
+        height: 320px;
+      }
+
+      .inner-circle {
+        width: 285px;
+        height: 285px;
+      }
+
+      .z1 {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+
+      .block1,
+      .block2 {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+
+        border: 2px solid black;
+        top: 50%;
+        left: 50%;
+        animation: ani 1s 1;
+      }
+
+      .block1 {
+        transform: translateX(-50%) translateY(-50%) rotate(0deg);
+      }
+
+      .block2 {
+        transform-origin: center;
+        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      }
+
+      @keyframes ani {
+        0% {
+          border-color: white;
+        }
+
+        100% {
+          border-color: black;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wai">
+      <div class="outer-circle"></div>
+      <div class="inner-circle"></div>
+      <div class="z1">
+        <div class="block1"></div>
+        <div class="block2"></div>
+      </div>
+    </div>
+  </body>
+</html>

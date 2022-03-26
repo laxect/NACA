@@ -9,8 +9,18 @@ edition = "2021"
 [[bin]]
 name = "anime"
 
+[[bin]]
+name = "page"
+required-features = ["page"]
+
 [dependencies]
+gloo = { version = "0.6.1", optional = true }
 gnuplot = "0.0.37"
+js-sys = { version = "0.3.56", optional = true }
 thiserror = "1.0.30"
+wasm-bindgen = { version = "0.2.79", optional = true }
+web-sys = { version = "0.3.56", optional = true, features = ["HtmlCanvasElement", 'WebGlBuffer', 'WebGlProgram', 'WebGlRenderingContext', 'WebGlShader', 'WebGlUniformLocation'] }
+yew = { version = "0.19.3", optional = true }
 
 [features]
+page = ["yew", "gloo", "web-sys", "wasm-bindgen", "js-sys"]
